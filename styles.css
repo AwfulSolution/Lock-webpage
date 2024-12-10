@@ -84,4 +84,46 @@ body {
   #message.error {
     color: #d00000; /* Matches closed lock color */
   }
-  
+  /* Default styles (for desktops or larger screens) */
+body {
+  font-size: 16px;
+}
+
+/* Styles for tablets and smaller devices */
+@media (max-width: 768px) {
+  .container {
+    padding: 10px;
+  }
+
+  h1 {
+    font-size: 1.8em;
+  }
+
+  #codeInput {
+    width: 90%; /* Expand input to fit smaller screens */
+  }
+
+  #submitButton {
+    padding: 10px 20px;
+    font-size: 1em;
+  }
+
+  .lock {
+    font-size: 80px; /* Reduce lock size */
+  }
+}
+
+/* Styles for very small devices (e.g., phones) */
+@media (max-width: 480px) {
+  h1 {
+    font-size: 1.5em;
+  }
+
+  .instructions {
+    font-size: 1em;
+  }
+
+  .lock {
+    font-size: 60px;
+  }
+}
