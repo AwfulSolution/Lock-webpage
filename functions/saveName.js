@@ -15,11 +15,11 @@ exports.handler = async (event) => {
   const message = isValid ? "Code is correct!" : "Code is incorrect.";
 
   // GitHub Repo Information
-  const repoOwner = "your-github-username"; // Replace with your GitHub username
-  const repoName = "your-repo-name"; // Replace with your repository name
+  const repoOwner = "AwfulSolution"; // Replace with your GitHub username
+  const repoName = "Lock-webpage"; // Replace with your repository name
   const filePath = "names.txt"; // File in the repo to store the names
   const branch = "main"; // Replace with your default branch name
-  const githubToken = "your-personal-access-token"; // Replace with your GitHub PAT
+  const githubToken = "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"; // Replace with your GitHub PAT
 
   const octokit = new Octokit({ auth: githubToken });
 
