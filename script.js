@@ -23,3 +23,45 @@ document.getElementById('submitButton').addEventListener('click', () => {
     failSound.play(); // Play fail sound
   }
 });
+
+async function submitForm() {
+  const name = document.getElementById("nameInput").value.trim();
+  const code = document.getElementById("codeInput").value.trim();
+  const serverUrl = "https://your-site.netlify.app/.netlify/functions/saveName"; // Replace with your Netlify function URL
+
+  // Validate name input
+  if (!name) {
+    document.getElementById("message").textContent = "Please enter your name.";
+    return;
+  }
+
+  // Send name and code to the server
+  try {
+    const response = await fetch(serverUrl, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ name, code }),
+    });
+
+    const result = await response.json();
+
+    // Update the UI based on the server's response
+    const message = document.getElementById("message");
+    const lock = document.querySelector(".lock");
+
+    if (result.success) {
+      message.textContent = `Welcome, ${name}! The lock is open.`;
+      lock.classList.remove("closed");
+      lock.classList.add("open");
+    } else {
+      message.textContent = `Sorry, ${name}. Incorrect code.`;
+      lock.classList.remove("open");
+      lock.classList.add("closed");
+    }
+  } catch (error) {
+    console.error("Error submitting form:", error);
+    document.getElementById("message").textContent = "An error occurred. Please try again later.";
+  }
+}
+
+const serverUrl = "https://your-site.netlify.app/.netlify/functions/saveName";
