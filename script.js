@@ -48,3 +48,30 @@ async function submitForm() {
     message.textContent = "An error occurred. Please try again.";
   }
 }
+
+// Define the correct password
+const correctPassword = "futurestars";  // You can change this to any password you want
+
+// Get the HTML elements
+const codeInput = document.getElementById("codeInput");
+const submitButton = document.getElementById("submitButton");
+const lock = document.getElementById("lock");
+const message = document.getElementById("message");
+
+// Listen for the click event on the "Unlock" button
+submitButton.addEventListener("click", () => {
+  const enteredCode = codeInput.value;  // Get the code entered by the user
+
+  if (enteredCode === correctPassword) {
+    // If the entered code matches the correct password
+    lock.textContent = "🔓";  // Unlock the lock (open the lock image)
+    message.textContent = "Congratulations! You unlocked the lock.";
+    message.style.color = "green";
+    document.getElementById("successSound").play();  // Play success sound
+  } else {
+    // If the entered code is incorrect
+    message.textContent = "Wrong code. Try again.";
+    message.style.color = "red";
+    document.getElementById("failSound").play();  // Play fail sound
+  }
+});
