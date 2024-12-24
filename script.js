@@ -48,3 +48,4 @@ async function submitForm() {
     message.textContent = "An error occurred. Please try again.";
   }
 }
+const serverUrl = "https://lock-challenge.netlify.app/.netlify/functions/saveName";
