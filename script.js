@@ -64,4 +64,4 @@ async function submitForm() {
   }
 }
 
-const serverUrl = "https://your-site.netlify.app/.netlify/functions/saveName";
+const serverUrl = "https://lock-backend.netlify.app/.netlify/functions/saveName";
